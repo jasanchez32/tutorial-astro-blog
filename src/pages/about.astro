@@ -2,13 +2,20 @@
 const pageTitle = "Sobre mi <3";
 
 const identify = {
-    firstName: "Jennifer",
-    country: "Colombia",
-    occupation: "Desarrolladora FrontEnd",
-    hobbies: ["escuchar música", "pintar", "jugar sudoku"],
+  firstName: "Jennifer",
+  country: "Colombia",
+  occupation: "Desarrolladora FrontEnd",
+  hobbies: ["escuchar música", "pintar", "jugar sudoku"],
 };
 
-const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Redacción de documentos"];
+const skills = [
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "React",
+  "Astro",
+  "Redacción de documentos",
+];
 
 const happy = true;
 const finished = false;
@@ -23,6 +30,17 @@ const goal = 3;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
+    <style>
+      h1 {
+        color: purple;
+        font-size: 4rem;
+      }
+
+      .skill {
+        color: green;
+        font-weight: bold;
+      }
+    </style>
   </head>
   <body>
     <a href="/">Inicio</a>
@@ -44,20 +62,31 @@ const goal = 3;
     <p>He aquí datos sibre mí</p>
 
     <ul>
-        <li>Me llamo {identify.firstName}.</li>
-        <li>Vivo en {identify.country} y trabajo como {identify.occupation}.</li>
-        {identify.hobbies.length >= 2 && 
-            <li>Dos de mis aficiones son: {identify.hobbies[0]} y {identify.hobbies[1]}</li>
-        }
+      <li>Me llamo {identify.firstName}.</li>
+      <li>Vivo en {identify.country} y trabajo como {identify.occupation}.</li>
+      {
+        identify.hobbies.length >= 2 && (
+          <li>
+            Dos de mis aficiones son: {identify.hobbies[0]} y{" "}
+            {identify.hobbies[1]}
+          </li>
+        )
+      }
     </ul>
 
     <p>Mis habilidades son:</p>
     <ul>
-        {skills.map((skill) => <li>{skill}</li>)}
+      {skills.map((skill) => <li class="skill">{skill}</li>)}
     </ul>
 
     {happy && <p>¡Estoy feliz de aprender Astro!</p>}
     {finished && <p>¡He terminado este tutorial!</p>}
-    {goal === 3 ? <p>Mi objetivo es terminar en 3 días.</p> : <p>Mi objetivo no son 3 días.</p>}
+    {
+      goal === 3 ? (
+        <p>Mi objetivo es terminar en 3 días.</p>
+      ) : (
+        <p>Mi objetivo no son 3 días.</p>
+      )
+    }
   </body>
 </html>
