@@ -21,5 +21,14 @@ const pageTitle = "Página de inicio";
     <h1>{pageTitle}</h1>
 
     <Footer />
+
+    <script>
+      const menu = document.querySelector('.menu');
+
+      menu?.addEventListener('click', () => {
+        const isExpanded = menu.getAttribute('aria-expanded') === 'true';
+        menu.setAttribute('aria-expanded', `${!isExpanded}`);
+      });
+    </script>
   </body>
 </html>
