@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import BlogPost from "../components/BlogPost.astro";
 const allPots = Object.values(import.meta.glob('./posts/*.md', { eager: true }));
 const pageTitle = "Mi blog de Astro aprendizaje";
 ---
@@ -7,6 +8,6 @@ const pageTitle = "Mi blog de Astro aprendizaje";
 <BaseLayout pageTitle={pageTitle}>
   <p>Aquí es donde publicaré sobre mi viaje de aprendizaje Astro.</p>
   <ul>
-    { allPots.map((post: any) => <li><a href={ post.url }>{ post.frontmatter.title }</a></li>) }
+    { allPots.map((post: any) => <BlogPost url={post.url} title={post.frontmatter.title} />) }
   </ul>
 </BaseLayout>
