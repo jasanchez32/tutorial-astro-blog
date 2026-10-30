@@ -8,7 +8,7 @@ const tags = frontmatter.tags;
   <p>
     <b>Autor: </b>
     {frontmatter.author} | <b>Publicado: </b>
-    {frontmatter.pubDate.toString().slice(0, 10)}
+    {frontmatter.pubDate.toLocaleDateString()}
   </p>
   <p><em>{frontmatter.description}</em></p>
   <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
